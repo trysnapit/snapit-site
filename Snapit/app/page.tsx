@@ -1,9 +1,13 @@
+import { Audience } from "@/components/home/audience";
 import { Change } from "@/components/home/change";
+import { Close } from "@/components/home/close";
 import { Costs } from "@/components/home/costs";
+import { DayOne } from "@/components/home/day-one";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Problem } from "@/components/home/problem";
 import { Reads } from "@/components/home/reads";
+import { Systems } from "@/components/home/systems";
 import { TwoViews } from "@/components/home/two-views";
 
 export default function Home() {
@@ -16,6 +20,10 @@ export default function Home() {
       <HowItWorks />
       <Reads />
       <TwoViews />
+      <Systems />
+      <Audience />
+      <DayOne />
+      <Close />
     </>
   );
 }
