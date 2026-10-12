@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { PostDate } from "@/components/blog/post-date";
+import { JsonLd } from "@/components/json-ld";
 import { getAllPosts, getPost } from "@/lib/posts";
+import { site } from "@/lib/site";
 
 const homeSections = {
   "retyping-invoices": {
@@ -81,6 +83,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </Link>
         </div>
       </div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BlogPosting",
+              headline: post.title,
+              datePublished: post.date,
+              description: post.summary,
+              url: `${site.domain}/blog/${post.slug}`,
+              author: { "@type": "Organization", name: site.name },
+              publisher: { "@type": "Organization", name: site.name },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: site.domain },
+                { "@type": "ListItem", position: 2, name: "Blog", item: `${site.domain}/blog` },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: post.title,
+                  item: `${site.domain}/blog/${post.slug}`,
+                },
+              ],
+            },
+          ],
+        }}
+      />
     </article>
   );
 }

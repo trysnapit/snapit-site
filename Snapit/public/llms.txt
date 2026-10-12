@@ -1,0 +1,33 @@
+# Snapit
+
+Snapit posts invoices to the accounting system automatically.
+https://trysnapit.com
+
+Invoices go to the accounting system automatically.
+
+What Snapit reads: Supplier, Invoice number, Date, Line items, Tax, Total, Duplicate check.
+
+After one WhatsApp message:
+Send a photo or PDF on WhatsApp.
+Snapit reads the supplier, invoice number, date, tax, and total.
+The bill and the original document post.
+The same chat replies with the total.
+
+Branch staff get the total back and a duplicate warning.
+Finance sees every branch, posted or flagged.
+
+Live: Xero, QuickBooks, Zoho Books.
+Coming soon: NetSuite, Odoo, ERPNext, SQL Account, Mekari Jurnal, Accurate.
+The REST API pulls invoice data and documents.
+Webhooks push each invoice when it is read.
+The WhatsApp step stays the same.
+
+Any business that receives invoices: design agency, dental clinic, construction firm, logistics firm, retail chain, law firm, factory, school, startup, restaurant.
+Accounting firms use one number per client and review instead of retyping.
+
+Contact: hello@trysnapit.com, +65 8973 6594, https://wa.me/6589736594
+
+Posts:
+https://trysnapit.com/blog/retyping-invoices
+https://trysnapit.com/blog/one-whatsapp-message
+https://trysnapit.com/blog/posting-to-your-books
