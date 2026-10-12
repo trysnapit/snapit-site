@@ -17,6 +17,9 @@ export function SiteFooter() {
           <Link href="/blog" className={itemClass}>
             Blog
           </Link>
+          <a href="/llms.txt" className={itemClass}>
+            llms.txt
+          </a>
           <a href={site.privacyUrl} className={itemClass}>
             Privacy
           </a>

@@ -29,7 +29,7 @@ export function MobileNav() {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="absolute inset-x-0 top-full z-40 border-b border-ink/10 bg-white px-4 py-3 shadow-sm md:hidden"
+          className="menu-in absolute inset-x-0 top-full z-40 border-b border-ink/10 bg-white px-4 py-3 shadow-sm md:hidden"
         >
           {navLinks.map((item) =>
             item.href.startsWith("/") ? (

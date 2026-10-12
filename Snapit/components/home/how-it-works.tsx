@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { StepFlow } from "@/components/home/step-flow";
 import { steps } from "@/lib/home";
-
-const labels = ["Snap", "Read", "Post", "Reply"] as const;
+import { howToSchema } from "@/lib/schema";
 
 export function HowItWorks() {
   return (
-    <section className="px-5 py-20 md:py-28">
+    <section className="px-5 py-20 md:py-28" aria-labelledby="how-it-works">
       <div className="mx-auto max-w-content">
         <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">See it work</p>
         <h2
@@ -17,26 +18,8 @@ export function HowItWorks() {
         <p className="mt-5 text-lg leading-relaxed text-muted">
           A photo or PDF on WhatsApp becomes a posted bill, and the chat replies with the total.
         </p>
-        <ol className="mt-10 grid gap-8 rounded-[28px] border border-ink/10 bg-white p-6 sm:p-8 lg:grid-cols-3">
-          {steps.map((step, index) => (
-            <li key={step} className="min-w-0">
-              <div className="flex items-center gap-3">
-                <span
-                  className={`grid size-8 shrink-0 place-items-center rounded-full text-sm font-semibold ${
-                    index === steps.length - 1
-                      ? "bg-accent-fill text-ink"
-                      : "border border-accent text-accent"
-                  }`}
-                >
-                  {index === steps.length - 1 ? "✓" : index + 1}
-                </span>
-                {index < 2 ? <span className="hidden h-px flex-1 bg-accent/30 lg:block" /> : null}
-              </div>
-              <h3 className="mt-4 text-xl font-semibold text-ink">{labels[index]}</h3>
-              <p className="mt-2 text-base leading-relaxed text-muted">{step}</p>
-            </li>
-          ))}
-        </ol>
+        <StepFlow steps={steps} />
+        <JsonLd data={howToSchema()} />
         <p className="mt-8">
           <Link
             href="/blog/one-whatsapp-message"

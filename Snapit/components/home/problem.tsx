@@ -7,10 +7,10 @@ const sources = [
 
 export function Problem() {
   return (
-    <section className="px-5 py-20 md:py-28">
+    <section id="problem" className="scroll-mt-20 px-5 py-20 md:py-28" aria-labelledby="problem-heading">
       <div className="mx-auto max-w-content">
         <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">The problem</p>
-        <h2 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+          <h2 id="problem-heading" className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
           Invoices arrive everywhere.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-muted">

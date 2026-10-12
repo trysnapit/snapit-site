@@ -3,19 +3,19 @@ import { systems } from "@/lib/home";
 
 export function Systems() {
   return (
-    <section id="systems" className="scroll-mt-20 px-5 py-20 md:py-28">
+    <section id="systems" className="scroll-mt-20 px-5 py-20 md:py-28" aria-labelledby="systems-heading">
       <div className="mx-auto max-w-content">
         <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
           Accounting systems
         </p>
-        <h2 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+        <h2 id="systems-heading" className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
           Posts to the system you already use.
         </h2>
         <ul className="mt-10 grid gap-4 sm:grid-cols-3">
           {systems.live.map((name) => (
             <li
               key={name}
-              className="grid min-h-28 place-items-center rounded-[24px] border border-ink/10 bg-white px-4 text-center text-2xl font-semibold tracking-tight text-ink"
+              className="settle grid min-h-28 place-items-center rounded-[24px] border border-ink/10 bg-white px-4 text-center text-2xl font-semibold tracking-tight text-ink"
             >
               {name}
             </li>
@@ -41,7 +41,7 @@ export function Systems() {
           {systems.api.map((line) => {
             const title = line.startsWith("The REST API") ? "REST API" : "Webhooks";
             return (
-              <article key={line} className="min-w-0 rounded-[24px] border border-ink/10 bg-white p-6">
+              <article key={line} className="settle min-w-0 rounded-[24px] border border-ink/10 bg-white p-6">
                 <h3 className="text-lg font-semibold text-ink">{title}</h3>
                 <p className="mt-2 text-base leading-relaxed text-muted">{line}</p>
               </article>

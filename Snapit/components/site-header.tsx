@@ -7,7 +7,7 @@ const navItemClass =
   "inline-flex min-h-11 items-center rounded-full px-3 text-sm font-medium text-ink hover:text-accent";
 
 const tryClass =
-  "min-h-11 items-center justify-center rounded-full bg-accent-fill px-4 text-sm font-semibold text-ink";
+  "nudge min-h-11 items-center justify-center rounded-full bg-accent-fill px-4 text-sm font-semibold text-ink";
 
 export function SiteHeader() {
   return (

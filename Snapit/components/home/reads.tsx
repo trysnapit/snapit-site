@@ -12,13 +12,13 @@ const samples: Record<(typeof fields)[number], string> = {
 
 export function Reads() {
   return (
-    <section className="px-5 py-20 md:py-28">
+    <section id="reads" className="scroll-mt-20 px-5 py-20 md:py-28" aria-labelledby="reads-heading">
       <div className="mx-auto grid max-w-content items-center gap-10 lg:grid-cols-2">
         <div className="min-w-0">
           <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
             What Snapit reads
           </p>
-          <h2 className="mt-3 text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+          <h2 id="reads-heading" className="mt-3 text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
             Every detail, read and checked.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted">
@@ -47,6 +47,7 @@ export function Reads() {
               >
                 <dt className="text-sm text-muted">{field}</dt>
                 <dd
+                  aria-hidden="true"
                   className={`text-right text-sm font-semibold ${field === "Total" ? "text-accent" : "text-ink"}`}
                 >
                   {samples[field]}

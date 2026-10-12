@@ -5,18 +5,18 @@ const icons = ["clock", "copy", "file", "search", "folder", "desk"] as const;
 
 export function Costs() {
   return (
-    <section id="costs" className="scroll-mt-20 px-5 py-20 md:py-28">
+    <section id="costs" className="scroll-mt-20 px-5 py-20 md:py-28" aria-labelledby="costs-heading">
       <div className="mx-auto max-w-content">
         <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
           Beyond the typing time
         </p>
-        <h2 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+        <h2 id="costs-heading" className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
           What retyping really costs you.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-muted">The cost is more than typing time.</p>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {costs.map((cost, index) => (
-            <li key={cost.title} className="min-w-0 rounded-[24px] border border-ink/10 bg-white p-6">
+            <li key={cost.title} className="settle min-w-0 rounded-[24px] border border-ink/10 bg-white p-6">
               <span className="grid size-10 place-items-center rounded-xl bg-accent-fill/25 text-accent">
                 <CostIcon name={icons[index]} />
               </span>

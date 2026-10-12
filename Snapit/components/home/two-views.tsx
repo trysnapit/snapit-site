@@ -2,17 +2,17 @@ import { views } from "@/lib/home";
 
 export function TwoViews() {
   return (
-    <section className="px-5 py-20 md:py-28">
+    <section id="accounted" className="scroll-mt-20 px-5 py-20 md:py-28" aria-labelledby="accounted-heading">
       <div className="mx-auto max-w-content">
         <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Built-in checks</p>
-        <h2 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+        <h2 id="accounted-heading" className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
           Every invoice, accounted for.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-muted">
           The sender gets the total back in the same chat, and the owner sees every branch.
         </p>
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          <article className="min-w-0 rounded-[28px] border border-ink/10 bg-white p-6">
+          <article className="settle min-w-0 rounded-[28px] border border-ink/10 bg-white p-6">
             <h3 className="text-xs font-semibold tracking-[0.14em] text-accent uppercase">
               {views[0].title}
             </h3>
@@ -30,13 +30,13 @@ export function TwoViews() {
                 Duplicates are flagged.
               </li>
             </ul>
-            <div className="mt-5 rounded-2xl bg-page p-4 text-sm leading-relaxed">
+            <div aria-hidden="true" className="mt-5 rounded-2xl bg-page p-4 text-sm leading-relaxed">
               <p className="text-ink">Booked. Total: 1,240.00 (sample)</p>
               <p className="mt-2 text-accent">Duplicate flagged: already posted (sample)</p>
             </div>
             <p className="mt-4 text-base leading-relaxed text-muted">{views[0].detail}</p>
           </article>
-          <article className="min-w-0 rounded-[28px] border border-ink/10 bg-white p-6">
+          <article className="settle min-w-0 rounded-[28px] border border-ink/10 bg-white p-6">
             <h3 className="text-xs font-semibold tracking-[0.14em] text-accent uppercase">
               {views[1].title}
             </h3>
@@ -46,7 +46,7 @@ export function TwoViews() {
               </span>
               Every branch, posted or flagged.
             </p>
-            <ul className="mt-5 divide-y divide-ink/10 rounded-2xl bg-page px-4">
+            <ul aria-hidden="true" className="mt-5 divide-y divide-ink/10 rounded-2xl bg-page px-4">
               {[
                 ["Sample Branch A", "Posted", "3,120.00"],
                 ["Sample Branch B", "Posted", "1,860.00"],

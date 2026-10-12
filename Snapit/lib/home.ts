@@ -43,6 +43,8 @@ export const steps = [
   "The same chat replies with the total.",
 ] as const satisfies readonly string[];
 
+export const stepLabels = ["Snap", "Read", "Post", "Reply"] as const;
+
 export const fields = [
   "Supplier",
   "Invoice number",

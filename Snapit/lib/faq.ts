@@ -7,11 +7,11 @@ const firms = audiences[1];
 export const faqs = [
   {
     question: "What does Snapit do?",
-    answer: site.description,
+    answer: `${site.description} ${steps[0]} ${steps[2]} ${steps[3]}`,
   },
   {
     question: "What does retyping really cost you?",
-    answer: costs.map((cost) => `${cost.title}. ${cost.detail}`).join(" "),
+    answer: `${costs.map((cost) => cost.detail).join(" ")} The cost is more than typing time.`,
   },
   {
     question: "What happens after one WhatsApp message?",
@@ -19,7 +19,7 @@ export const faqs = [
   },
   {
     question: "What does Snapit read?",
-    answer: `${fields.join(", ")}. ${steps[1]} ${steps[2]}`,
+    answer: `Snapit reads ${fields.join(", ")}. ${steps[1]}`,
   },
   {
     question: "What do branch staff and finance see?",
@@ -27,19 +27,21 @@ export const faqs = [
   },
   {
     question: "Which accounting systems does Snapit post to?",
-    answer: `${systems.live.join(", ")}. Coming soon: ${systems.soon.join(", ")}. ${systems.api.join(" ")} ${systems.whatsapp}`,
+    answer: `Live: ${systems.live.join(", ")}. Coming soon: ${systems.soon.join(", ")}. ${systems.api.join(" ")} ${systems.whatsapp}`,
   },
   {
     question: "Who is Snapit for?",
-    answer: `${anyBusiness.detail} ${"examples" in anyBusiness ? anyBusiness.examples.join(", ") : ""}. ${firms.detail}`,
+    answer: `${anyBusiness.detail} Examples: ${"examples" in anyBusiness ? anyBusiness.examples.join(", ") : ""}. ${firms.detail}`,
   },
   {
     question: "What changes on day one?",
-    answer: dayOne.map((row) => `${row.label}. ${row.today}. ${row.withSnapit}.`).join(" "),
+    answer: dayOne
+      .map((row) => `${row.label}: today, ${row.today}. With Snapit, ${row.withSnapit}.`)
+      .join(" "),
   },
   {
     question: "How do you reach Snapit?",
-    answer: `${site.email} ${site.whatsappDisplay}`,
+    answer: `Email ${site.email} or WhatsApp ${site.whatsappDisplay}.`,
   },
 ] as const;
 

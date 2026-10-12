@@ -12,12 +12,14 @@ import { Reads } from "@/components/home/reads";
 import { Systems } from "@/components/home/systems";
 import { TwoViews } from "@/components/home/two-views";
 import { JsonLd } from "@/components/json-ld";
+import { homeGraph } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: site.title },
   description: site.description,
   alternates: { canonical: "/" },
+  openGraph: { url: "/" },
 };
 
 export default function Home() {
@@ -35,15 +37,7 @@ export default function Home() {
       <DayOne />
       <Faq />
       <Close />
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          name: site.name,
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "Web",
-        }}
-      />
+      <JsonLd data={homeGraph()} />
     </>
   );
 }

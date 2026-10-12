@@ -1,7 +1,7 @@
 import { trySnapit } from "@/lib/nav";
 
 const actionClass =
-  "inline-flex min-h-12 items-center justify-center rounded-full px-5 text-sm font-semibold";
+  "nudge inline-flex min-h-12 items-center justify-center rounded-full px-5 text-sm font-semibold";
 
 const rows = [
   ["Supplier", "Sample Supplier Co."],
@@ -13,16 +13,16 @@ export function Hero() {
   return (
     <section className="px-5 pb-8 pt-16 md:pt-24">
       <div className="mx-auto max-w-content text-center">
-        <p className="mx-auto text-xs font-semibold tracking-[0.16em] text-accent uppercase">
+        <p className="rise mx-auto text-xs font-semibold tracking-[0.16em] text-accent uppercase">
           WhatsApp in. Invoice booked.
         </p>
-        <h1 className="mx-auto mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-balance text-ink sm:text-7xl">
+        <h1 className="rise delay-1 mx-auto mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-balance text-ink sm:text-7xl">
           WhatsApp it. It’s in your books.
         </h1>
-        <p className="mx-auto mt-5 text-lg leading-relaxed text-muted">
+        <p className="rise delay-2 mx-auto mt-5 text-lg leading-relaxed text-muted">
           Invoices go to the accounting system automatically.
         </p>
-        <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+        <div className="rise delay-3 mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
           <a href={trySnapit.href} className={`${actionClass} bg-accent-fill text-ink`}>
             {trySnapit.label}
           </a>
@@ -30,8 +30,9 @@ export function Hero() {
             See how it works
           </a>
         </div>
-        <div className="mx-auto mt-14 max-w-5xl rounded-[28px] border border-ink/10 bg-white p-3 text-left shadow-sm sm:p-5">
-          <div className="flex gap-1.5 px-2 pt-1" aria-hidden="true">
+        <figure className="rise delay-4 mx-auto mt-14 max-w-5xl rounded-[28px] border border-ink/10 bg-white p-3 text-left shadow-sm sm:p-5">
+          <div aria-hidden="true">
+          <div className="flex gap-1.5 px-2 pt-1">
             <span className="size-2 rounded-full bg-ink/15" />
             <span className="size-2 rounded-full bg-ink/15" />
             <span className="size-2 rounded-full bg-ink/15" />
@@ -78,10 +79,13 @@ export function Hero() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 text-xs text-muted">Sample figures for illustration.</p>
             </div>
           </div>
-        </div>
+          </div>
+          <figcaption className="mt-3 text-center text-xs text-muted">
+            Sample figures for illustration. Not a customer invoice.
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

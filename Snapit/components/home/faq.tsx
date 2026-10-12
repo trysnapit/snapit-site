@@ -3,9 +3,12 @@ import { faqPageSchema, faqs } from "@/lib/faq";
 
 export function Faq() {
   return (
-    <section className="px-5 py-20 md:py-28">
+    <section id="questions" className="scroll-mt-20 px-5 py-20 md:py-28" aria-labelledby="questions-heading">
       <div className="mx-auto max-w-content">
-        <h2 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+        <h2
+          id="questions-heading"
+          className="max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl"
+        >
           Questions
         </h2>
         <dl className="mt-10 divide-y divide-ink/10 border-y border-ink/10">

@@ -11,7 +11,7 @@ export function Close() {
         <div className="mt-8 flex flex-col items-center gap-3">
           <a
             href={trySnapit.href}
-            className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent-fill px-6 text-sm font-semibold text-ink"
+            className="nudge inline-flex min-h-12 items-center justify-center rounded-full bg-accent-fill px-6 text-sm font-semibold text-ink"
           >
             {trySnapit.label}
           </a>

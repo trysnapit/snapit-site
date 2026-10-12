@@ -3,6 +3,7 @@ import { DM_Sans, Manrope } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { siteGraph } from "@/lib/schema";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -23,9 +24,22 @@ export const metadata: Metadata = {
     template: "%s · Snapit",
   },
   description: site.description,
+  applicationName: site.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     siteName: site.name,
+    locale: "en",
   },
   twitter: {
     card: "summary_large_image",
@@ -47,24 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                name: site.name,
-                url: site.domain,
-                email: site.email,
-              },
-              {
-                "@type": "WebSite",
-                name: site.name,
-                url: site.domain,
-              },
-            ],
-          }}
-        />
+        <JsonLd data={siteGraph()} />
       </body>
     </html>
   );
