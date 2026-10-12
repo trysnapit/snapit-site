@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { PostDate } from "@/components/blog/post-date";
 import { getAllPosts } from "@/lib/posts";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Why retyping invoices costs more than the typing, what happens after one WhatsApp message, and posting into Xero, QuickBooks, Zoho Books, or your own system.",
+  alternates: { canonical: "/blog" },
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();

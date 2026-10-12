@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Audience } from "@/components/home/audience";
 import { Change } from "@/components/home/change";
 import { Close } from "@/components/home/close";
@@ -9,6 +10,13 @@ import { Problem } from "@/components/home/problem";
 import { Reads } from "@/components/home/reads";
 import { Systems } from "@/components/home/systems";
 import { TwoViews } from "@/components/home/two-views";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: { absolute: site.title },
+  description: site.description,
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

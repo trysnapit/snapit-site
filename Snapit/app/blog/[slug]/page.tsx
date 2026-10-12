@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
@@ -22,6 +23,25 @@ const homeSections = {
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPost(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return {
+    title: post.title,
+    description: post.summary,
+    alternates: { canonical: `/blog/${post.slug}` },
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
