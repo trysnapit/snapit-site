@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { systems } from "@/lib/home";
 
 export function Systems() {
@@ -10,6 +11,14 @@ export function Systems() {
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink">
             The WhatsApp step stays the same for staff.
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/blog/posting-to-your-books"
+              className="inline-flex min-h-11 items-center font-semibold text-accent"
+            >
+              Posting into Xero, QuickBooks, Zoho Books, or your own system
+            </Link>
           </p>
         </div>
         <div className="flex flex-col gap-8">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { costs } from "@/lib/home";
 
 export function Costs() {
@@ -10,6 +11,14 @@ export function Costs() {
             What retyping really costs you.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink">The cost is more than typing time.</p>
+          <p className="mt-6">
+            <Link
+              href="/blog/retyping-invoices"
+              className="inline-flex min-h-11 items-center font-semibold text-accent"
+            >
+              Why retyping invoices costs more than the typing
+            </Link>
+          </p>
         </div>
         <ul className="flex flex-col gap-6">
           {costs.map((cost) => (

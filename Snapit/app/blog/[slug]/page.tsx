@@ -5,6 +5,21 @@ import remarkGfm from "remark-gfm";
 import { PostDate } from "@/components/blog/post-date";
 import { getAllPosts, getPost } from "@/lib/posts";
 
+const homeSections = {
+  "retyping-invoices": {
+    href: "/#costs",
+    label: "What retyping really costs you",
+  },
+  "one-whatsapp-message": {
+    href: "/#how-it-works",
+    label: "One WhatsApp message. One posted bill.",
+  },
+  "posting-to-your-books": {
+    href: "/#systems",
+    label: "Posts to the system you already use.",
+  },
+} as const;
+
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
 }
@@ -16,6 +31,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) {
     notFound();
   }
+
+  const homeSection = homeSections[post.slug as keyof typeof homeSections];
 
   return (
     <article className="min-w-0 px-5 py-20 md:py-28">
@@ -30,11 +47,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="article-body mt-10">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
         </div>
-        <p className="mt-12">
+        <div className="mt-12 flex flex-col">
+          {homeSection ? (
+            <Link
+              href={homeSection.href}
+              className="inline-flex min-h-11 items-center font-semibold text-accent"
+            >
+              {homeSection.label}
+            </Link>
+          ) : null}
           <Link href="/blog" className="inline-flex min-h-11 items-center font-semibold text-accent">
             Back to the blog
           </Link>
-        </p>
+        </div>
       </div>
     </article>
   );

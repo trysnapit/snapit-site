@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { steps } from "@/lib/home";
 
 export function HowItWorks() {
@@ -13,6 +14,14 @@ export function HowItWorks() {
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink">
             A photo or PDF on WhatsApp becomes a posted bill, and the chat replies with the total.
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/blog/one-whatsapp-message"
+              className="inline-flex min-h-11 items-center font-semibold text-accent"
+            >
+              What happens after one WhatsApp message
+            </Link>
           </p>
         </div>
         <ol className="list-decimal space-y-4 pl-6 text-lg leading-relaxed text-ink">
