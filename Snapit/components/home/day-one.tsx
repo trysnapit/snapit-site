@@ -4,21 +4,30 @@ export function DayOne() {
   return (
     <section className="px-5 py-20 md:py-28">
       <div className="mx-auto max-w-content">
-        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
+        <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Day one</p>
+        <h2 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-ink sm:text-5xl">
           What changes on day one.
         </h2>
-        <ul className="mt-10 flex flex-col gap-8">
+        <ul className="mt-10 flex flex-col gap-3">
           {dayOne.map((row) => (
-            <li key={row.label} className="min-w-0 border-t border-ink/10 pt-6">
-              <h3 className="text-lg font-semibold text-ink">{row.label}</h3>
-              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <li key={row.label} className="min-w-0 rounded-[24px] border border-ink/10 bg-white p-5">
+              <h3 className="text-sm font-semibold text-muted">{row.label}</h3>
+              <div className="mt-3 grid grid-cols-1 items-center gap-3 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-muted">Today</p>
-                  <p className="mt-1 text-base leading-relaxed text-ink">{row.today}</p>
+                  <p className="text-xs font-semibold tracking-[0.12em] text-muted uppercase">Today</p>
+                  <p className="mt-1 text-base font-semibold leading-relaxed text-ink">{row.today}</p>
                 </div>
+                <span
+                  aria-hidden="true"
+                  className="grid size-8 place-items-center justify-self-start rounded-full bg-accent-fill text-sm font-semibold text-ink sm:justify-self-center"
+                >
+                  →
+                </span>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-accent">With Snapit</p>
-                  <p className="mt-1 text-base leading-relaxed text-ink">{row.withSnapit}</p>
+                  <p className="text-xs font-semibold tracking-[0.12em] text-accent uppercase">
+                    With Snapit
+                  </p>
+                  <p className="mt-1 text-base font-semibold leading-relaxed text-ink">{row.withSnapit}</p>
                 </div>
               </div>
             </li>

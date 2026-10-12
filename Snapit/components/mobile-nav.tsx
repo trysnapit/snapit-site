@@ -5,7 +5,7 @@ import { useState } from "react";
 import { navLinks, trySnapit } from "@/lib/nav";
 
 const itemClass =
-  "flex min-h-11 items-center rounded-md px-3 text-base font-medium text-ink hover:text-accent";
+  "flex min-h-11 items-center rounded-full px-3 text-base font-medium text-ink hover:text-accent";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ export function MobileNav() {
     <>
       <button
         type="button"
-        className="ml-auto inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-ink md:hidden"
+        className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-medium text-ink md:hidden"
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((current) => !current)}
@@ -29,7 +29,7 @@ export function MobileNav() {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="absolute inset-x-0 top-full z-40 border-b border-ink/10 bg-page px-4 py-2 md:hidden"
+          className="absolute inset-x-0 top-full z-40 border-b border-ink/10 bg-white px-4 py-3 shadow-sm md:hidden"
         >
           {navLinks.map((item) =>
             item.href.startsWith("/") ? (
