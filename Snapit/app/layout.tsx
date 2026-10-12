@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Manrope } from "next/font/google";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -20,7 +22,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${manrope.variable} ${dmSans.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col font-body">{children}</body>
+      <body className="flex min-h-full flex-col font-body">
+        <a
+          href="#main"
+          className="absolute left-4 top-4 z-50 inline-flex min-h-11 -translate-y-24 items-center rounded-md bg-ink px-4 text-sm font-medium text-page focus:translate-y-0"
+        >
+          Skip to content
+        </a>
+        <SiteHeader />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }
