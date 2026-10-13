@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@theme static {
+  --color-ink: #101828;
+  --color-muted: #475467;
+  --color-page: #f7f8f6;
+  --color-accent: #3d6b4f;
+  --color-accent-fill: #5cd481;
+  --font-heading: var(--font-manrope), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --container-content: 72rem;
+  --container-measure: 42rem;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-heading);
+}
+
+p {
+  max-width: var(--container-measure);
+}
+
+:where(a, button) {
+  transition:
+    color 280ms ease,
+    background-color 280ms ease,
+    border-color 280ms ease;
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+
+.delay-2 {
+  animation-delay: 180ms;
+}
+
+.delay-3 {
+  animation-delay: 280ms;
+}
+
+.delay-4 {
+  animation-delay: 460ms;
+}
+
+.settle {
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms ease;
+}
+
+.nudge {
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 280ms ease,
+    background-color 280ms ease,
+    border-color 280ms ease;
+}
+
+.menu-in {
+  animation: rise 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.flow-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  background: white;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.flow-seg {
+  position: relative;
+  height: 1px;
+  flex: 1;
+  margin-left: 0.75rem;
+  background: color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+
+.flow-seg-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.flow.is-on .flow-seg-fill {
+  animation: flow-fill 1.05s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.flow.is-on .flow-marker {
+  animation: marker-on 0.45s ease forwards;
+}
+
+.flow.is-done .flow-seg-fill {
+  transform: scaleX(1);
+}
+
+.flow.is-done .flow-marker {
+  border-color: transparent;
+  background: var(--color-accent-fill);
+  color: var(--color-ink);
+}
+
+@keyframes flow-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes marker-on {
+  to {
+    border-color: transparent;
+    background: var(--color-accent-fill);
+    color: var(--color-ink);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .settle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgb(16 24 40 / 0.05);
+  }
+
+  .nudge:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .menu-in,
+  .flow.is-on .flow-seg-fill,
+  .flow.is-on .flow-marker {
+    animation: none;
+  }
+
+  .flow.is-on .flow-seg-fill {
+    transform: scaleX(1);
+  }
+
+  .flow.is-on .flow-marker {
+    border-color: transparent;
+    background: var(--color-accent-fill);
+    color: var(--color-ink);
+  }
+
+  .settle,
+  .nudge,
+  .settle:hover,
+  .nudge:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+.article-body {
+  max-width: var(--container-measure);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.article-body :is(p, li) {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.article-body :is(h2, h3, h4) {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.article-body p {
+  margin-bottom: 1rem;
+}
+
+.article-body :is(ul, ol) {
+  margin: 1rem 0 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.article-body ul {
+  list-style: disc;
+}
+
+.article-body ol {
+  list-style: decimal;
+}
+
+.article-body li + li {
+  margin-top: 0.5rem;
+}
+
+.article-body :is(pre, code) {
+  white-space: pre-wrap;
+}
