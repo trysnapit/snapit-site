@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Snapit
 
-## Getting Started
+Public marketing site for [Snapit](https://trysnapit.com). Invoices go to the accounting system automatically.
 
-First, run the development server:
+This site tells the product story. Login, invoices, privacy, and terms stay on [app.trysnapit.com](https://app.trysnapit.com).
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Edit the site
 
-## Learn More
+Public facts live in `lib/site.ts`: the domain, title, description, email, WhatsApp link, and the app, privacy, and terms URLs.
 
-To learn more about Next.js, take a look at the following resources:
+Home copy lives in `lib/home.ts`. The home sections render that data. Questions in `lib/faq.ts` are built from the same strings, and `/llms.txt` repeats them.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A new blog post is a Markdown file in `content/blog`. See `content/blog/README.md`. The filename is the URL. The sitemap, blog index, and `/llms.txt` pick it up on the next build.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Host the app on [Vercel](https://vercel.com) and point `trysnapit.com` at that project. The site uses the Next.js server for the social image, sitemap, `robots.txt`, and `/llms.txt`.
