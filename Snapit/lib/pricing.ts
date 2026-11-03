@@ -1,3 +1,5 @@
+import { site } from "@/lib/site";
+
 // Mirrors the live credit settings and packs in the app (Admin → Credits).
 // Update this file whenever those change.
 const centsPerCredit = 10;
@@ -27,3 +29,15 @@ export const pricing = {
   firms: "One credit balance covers every client company. Set a monthly cap for each.",
   volume: `Need more than ${largestPack.toLocaleString("en-SG")} invoices a month?`,
 } as const;
+
+export function pricingSummary() {
+  const packs = pricing.packs.map((pack) => `${pack.credits} credits for ${pack.price}`).join(", ");
+  return [
+    "Pay per invoice. No subscription.",
+    `Start with ${pricing.welcomeCredits} free credits. One credit reads one invoice, ${pricing.perInvoice} each.`,
+    `Buy credits in packs: ${packs}.`,
+    ...pricing.terms,
+    pricing.firms,
+    `${pricing.volume} Email ${site.email}.`,
+  ].join(" ");
+}
