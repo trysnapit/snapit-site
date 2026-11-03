@@ -7,6 +7,7 @@ import { DayOne } from "@/components/home/day-one";
 import { Faq } from "@/components/home/faq";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
+import { Pricing } from "@/components/home/pricing";
 import { Problem } from "@/components/home/problem";
 import { Reads } from "@/components/home/reads";
 import { Systems } from "@/components/home/systems";
@@ -35,6 +36,7 @@ export default function Home() {
       <Systems />
       <Audience />
       <DayOne />
+      <Pricing />
       <Faq />
       <Close />
       <JsonLd data={homeGraph()} />

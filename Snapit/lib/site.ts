@@ -7,6 +7,7 @@ export const site = {
   whatsappDisplay: "+65 8973 6594",
   whatsappUrl: "https://wa.me/6589736594",
   appUrl: "https://app.trysnapit.com",
+  registerUrl: "https://app.trysnapit.com/register",
   privacyUrl: "https://app.trysnapit.com/privacy",
   termsUrl: "https://app.trysnapit.com/terms",
 } as const;
