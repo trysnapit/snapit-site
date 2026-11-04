@@ -1,4 +1,5 @@
 import { audiences, costs, dayOne, fields, steps, systems, views } from "@/lib/home";
+import { pricingSummary } from "@/lib/pricing";
 import { site } from "@/lib/site";
 
 const anyBusiness = audiences[0];
@@ -38,6 +39,10 @@ export const faqs = [
     answer: dayOne
       .map((row) => `${row.label}: today, ${row.today}. With Snapit, ${row.withSnapit}.`)
       .join(" "),
+  },
+  {
+    question: "How much does Snapit cost?",
+    answer: pricingSummary(),
   },
   {
     question: "How do you reach Snapit?",

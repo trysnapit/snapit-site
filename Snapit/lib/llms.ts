@@ -26,6 +26,7 @@ export function llmsText() {
     `- [Accounting systems](${site.domain}/#systems): Posts to the system you already use.`,
     `- [Who it is for](${site.domain}/#who): Get invoices? Snapit is for you.`,
     `- [Day one](${site.domain}/#day-one): What changes on day one.`,
+    `- [Pricing](${site.domain}/#pricing): Pay per invoice. No subscription.`,
     `- [Questions](${site.domain}/#questions): Questions and answers.`,
     `- [Blog](${site.domain}/blog): Articles on retyping, one WhatsApp message, and posting to the books.`,
     ...posts.map(

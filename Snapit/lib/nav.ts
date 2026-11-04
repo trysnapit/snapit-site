@@ -2,6 +2,7 @@ import { site } from "@/lib/site";
 
 export const navLinks = [
   { href: "/#how-it-works", label: "How it works" },
+  { href: "/#pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
   { href: site.appUrl, label: "Log in" },
 ] as const;
